@@ -5,6 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Form from './Form';
 import ShowOnform from './ShowOnform';
 import Home from './Home';
+import ShowProduct from './ShowProduct';
+import ShowProducts from './ShowProducts';
 const Navigations = () => {
     const Stack = createNativeStackNavigator()
   return (
@@ -13,6 +15,8 @@ const Navigations = () => {
    <Stack.Screen name='Home' component={Home}/>
    <Stack.Screen name='Form' component={Form} options={{headerShown:false}}/>
    <Stack.Screen name='ShowOnform' component={ShowOnform} />
+   <Stack.Screen name='ShowProduct' component={ShowProduct}/>
+   <Stack.Screen name='ShowProducts' component={ShowProducts}/>
    </Stack.Navigator>
    </NavigationContainer>
   )

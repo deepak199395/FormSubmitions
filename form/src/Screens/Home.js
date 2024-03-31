@@ -7,6 +7,8 @@ const Home = () => {
 
    const users= useSelector(state=>state.user)
    console.log(users);
+
+ 
   return (
     <View style={styles.container}>
 
@@ -17,17 +19,17 @@ const Home = () => {
        <Text>{item.email}</Text>
        <Text>{item.phone}</Text>
        <Text>{item.address}</Text>
-       {item.Image && <Image style={{width:50,height:60}} source={item.Image} />}
-
+       {users.image && <Image source={{ uri: users.image }} style={{ width: 50, height: 50 }} />}
       </View>
     )
    }}/>
+  
     <View style={styles.footer}>
     <TouchableOpacity onPress={()=>navigation.navigate('ShowOnform')}>
-    <Text style={styles.text}>add Products </Text>
+    <Text style={styles.text}>Add Products </Text>
     </TouchableOpacity>
-    <TouchableOpacity>
-    <Text style={styles.text}>add Products </Text>
+    <TouchableOpacity onPress={()=>navigation.navigate('ShowProduct')}>
+    <Text style={styles.text}>Add Products </Text>
     </TouchableOpacity>
     </View>
     </View>
@@ -47,18 +49,24 @@ const styles = StyleSheet.create({
      bottom:0,
      width:"99%",
      borderWidth:1,
-     height:50,
+     height:90,
      justifyContent:"space-between",
      alignItems:"center",
      alignSelf:"center",
      backgroundColor:"black",
     },
     text:{
-     color:"white"
+     color:"white",
+     padding:10,
+     fontSize:20,
+     fontWeight:"900",
+     borderWidth:1,
+     borderColor:"white",
+     borderRadius:5
     },
     flatlist:{
       width:"90%",
-      height:70,
+      height:270,
       borderWidth:1,
       alignSelf:"center"
     }

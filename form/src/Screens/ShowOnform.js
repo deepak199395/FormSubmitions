@@ -54,11 +54,11 @@ launchCamera({mediaType:'photo'},(response)=>{
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
 
         <TouchableOpacity onPress={selectImageFromGallery}>
-          <Text style={styles.input}>SELECT IMAGE</Text>
+          <Text style={styles.gallary}>SELECT IMAGE</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={selectImageFromCamera}>
-        <Text style={styles.input}>Tack A photo</Text>
+        <Text style={styles.gallary}>Tack A photo</Text>
         </TouchableOpacity>
         <TextInput style={styles.input}
            placeholder='Name'
@@ -89,14 +89,16 @@ launchCamera({mediaType:'photo'},(response)=>{
 
         <TouchableOpacity style={styles.btn} onPress={() => {
           if (validate) {
-       dispatch(addUser({ name,email,phone,address,image: image || null }))
+      // dispatch(addUser({ name,email,phone,address,image: image || null }))
+       dispatch(addUser({ name, email, phone, address, image:image || null }));
+
        navigation.goBack()
 
           } else {
             Alert.alert("fill all the blank")
           }
         }}>
-          <Text>Submit</Text>
+          <Text style={styles.btn1}>Submit</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -118,7 +120,34 @@ const styles = StyleSheet.create({
   },
   btn: {
     alignSelf: "center"
+  },
+  btn:{
+    borderWidth:1,
+    alignItems:"center",
+    width:"80%",
+    alignSelf:"center",
+    height:50,
+    justifyContent:"center",
+    marginTop:30,
+    borderRadius:10,
+    backgroundColor:"green",
+  },
+  btn1:{
+    fontSize:20,
+    fontWeight:"700",
+    color:"white"
+  },
+  gallary:{
+    borderWidth: 1,
+    padding: 15,
+    marginHorizontal: 10,
+    marginTop: 10,
+    borderRadius:150,
+    height:60,
+    backgroundColor:"blue",
+    color:"white",
+    alignSelf:"center"
   }
-});
+})
 
 export default ShowOnform;
